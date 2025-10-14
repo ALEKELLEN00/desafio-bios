@@ -1,20 +1,24 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Clima Atual</ion-title>
+  <ion-toolbar class="titulo-personalizado">
+    <ion-title class="titulo-texto">☁️Clima Atual</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <form (ngSubmit)="buscarClima()">
   <ion-item>
     <ion-input
       [(ngModel)]="termo"
-      placeholder="Digite o CEP (8 dígitos) ou cidade"
+      name="termo"
+      required
+      placeholder="🔍Digite o CEP (8 dígitos) ou cidade"
       clear-input
+      
     ></ion-input>
   </ion-item>
 
-  <ion-button expand="full" color="primary" (click)="buscarClima()">Buscar</ion-button>
-
+  <ion-button class="botao-vermelho" expand="full" type="submit" shape="round">Buscar</ion-button>
+ </form>
   <ion-spinner *ngIf="loading" name="crescent" class="ion-margin"></ion-spinner>
 
   <ion-card *ngIf="weather">
@@ -30,5 +34,5 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-text color="danger" *ngIf="error">{{ error }}</ion-text>
+  <ion-text color="danger" *ngIf="error" class="ion-margin-top">⚠️{{ error }}</ion-text>
 </ion-content>

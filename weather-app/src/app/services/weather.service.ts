@@ -68,8 +68,37 @@ export class WeatherService {
     return throwError(() => new Error('Falha de rede. Tente novamente.'));
   }
 
+  private getDescricaoCondicao(codigo: number): string {
+    const mapa: { [key: number]: string } = {
+      0: 'Céu limpo',
+      1: 'Parcialmente limpo',
+      2: 'Parcialmente nublado',
+      3: 'Encoberto',
+      45: 'Nevoeiro',
+      48: 'Nevoeiro com deposição',
+      51: 'Chuvisco leve',
+      53: 'Chuvisco moderado',
+      55: 'Chuvisco denso',
+      61: 'Chuva leve',
+      63: 'Chuva moderada',
+      65: 'Chuva forte',
+      71: 'Neve leve',
+      73: 'Neve moderada',
+      75: 'Neve intensa',
+      80: 'Pancadas de chuva leves',
+      81: 'Pancadas de chuva moderadas',
+      82: 'Pancadas de chuva fortes',
+      95: 'Trovoadas',
+      96: 'Trovoadas com granizo leve',
+      99: 'Trovoadas com granizo intenso'
+    };
+    return mapa[codigo] ?? 'Condição desconhecida';
+}
+
   private getWeatherByCoords(lat: number, lon: number, cidade: string) {
-    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,windspeed_10m&timezone=auto`;
+    console.log("latitude:", lat);
+    console.log("longitude:", lon);
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,windspeed_10m,weathercode&timezone=auto`;
 
     return this.http.get<any>(weatherUrl).pipe(
       map((data) => {
@@ -77,7 +106,7 @@ export class WeatherService {
         const result: WeatherResult = {
           cidade,
           temperaturaC: current.temperature_2m,
-          condicao: '—', // Open-Meteo não retorna descrição textual
+          condicao: this.getDescricaoCondicao(current.weathercode),
           umidade: current.relative_humidity_2m,
           ventoMs: current.windspeed_10m,
           atualizadoEm: new Date().toISOString()

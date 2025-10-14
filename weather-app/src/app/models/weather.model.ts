@@ -4,5 +4,5 @@ export interface WeatherResult {
   condicao: string;
   umidade: number;
   ventoMs: number;
-  atualizadoEm: string; // ISO string ou formatado
+  atualizadoEm: string;
 }

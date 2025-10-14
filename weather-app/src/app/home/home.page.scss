@@ -16,16 +16,81 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
-  color: #8c8c8c;
-
+  color: #000000;
   margin: 0;
 }
 
 #container a {
   text-decoration: none;
+  color: #000000;
 }
 
 ion-card {
   margin-top: 20px;
 }
+
+/*==========================================
+Estilo visual do app
+============================================*/
+
+ion-content {
+  --background: #b5b5b5;
+  color: #000000;
+}
+
+form {
+  margin-top: 16px;
+}
+
+ion-input {
+  --background: #ffffff;
+  --padding-start: 12px;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+ion-button.botao-vermelho {
+  --background: #e53935 !important;
+  --color: #ffffff;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+ion-card {
+  margin-top: 24px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  color: #000000;
+}
+
+ion-card:hover {
+  transform: translateY(-2px);
+}
+
+ion-card-content p {
+  font-size: 1rem;
+  margin: 6px 0;
+  line-height: 1.4;
+  color: #000000;
+}
+
+ion-spinner {
+  display: block;
+  margin: 24px auto;
+}
+
+ion-text [color='danger'] {
+color: #e53935 !important;
+}
+ion-toolbar.titulo-vermelho ion-title {
+  color: #c62828;//texto preto
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center ;
+}
+ion-toolbar.titulo-personalizado {
+  background: #e53935 !important; // vermelho vibrante
+  --background: #e53935 !important; // garante compatibilidade com Ionic
+}
+
