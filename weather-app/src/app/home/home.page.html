@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar class="titulo-personalizado">
-    <ion-title class="titulo-texto">☁️Clima Atual</ion-title>
+  <ion-toolbar class="titulo-personalizado" >
+    <ion-title >🌤️Clima Atual</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,8 +17,9 @@
     ></ion-input>
   </ion-item>
 
-  <ion-button class="botao-vermelho" expand="full" type="submit" shape="round">Buscar</ion-button>
+  <ion-button class="botao-amarelo" expand="full" type="submit" shape="round">Buscar</ion-button>
  </form>
+
   <ion-spinner *ngIf="loading" name="crescent" class="ion-margin"></ion-spinner>
 
   <ion-card *ngIf="weather">

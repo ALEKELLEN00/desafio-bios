@@ -68,8 +68,8 @@ this.weatherService.getWeather(this.termo).subscribe({
       this.loading = false;
       },
     error: (err) => {
-      this.error = err.message;
-      this.loading = false;
+      this.error = 'Local não encontrado. Por favor, verifique o CEP/cidade e tente novamente.';
+      this.loading = false;
       }
     });
 
