@@ -38,7 +38,6 @@ ion-content {
   }
 
 form {
-  margin-top: 16px;
   margin-bottom: 15px !important; 
 }
 
@@ -60,19 +59,15 @@ ion-item {
 }
 
 ion-input {
-  padding:0 13px;
+  padding:0 1px;
 }
 
 
 ion-button.botao-amarelo {
-  --background: #f5f8c3 !important;
-  background: #f5f8c3 !important; 
-  --color: #000000 !important;
-  border-radius: 8px;
-  font-weight: 600;
-  box-shadow: none;
   &::part(native) {
-  background-color: #f5f8c3 !important;}
+    background-color: #f5f8c3 !important;
+    --color: #000000 !important;
+  }
 }
 
 ion-button.botao-amarelo:hover,
@@ -110,8 +105,7 @@ ion-card-content p {
 ion-card-title {
   color: #ffffff !important;
   margin-bottom: 6px; 
-  font-size: 1.1rem; 
-  text-decoration: underline; 
+  font-size: 1.1rem;  
   font-weight: bold !important;
   display: inline-block; 
   padding: 3px 5px; 
