@@ -48,26 +48,7 @@ export class WeatherService {
       catchError(err => throwError(() => new Error('Erro ao buscar o CEP')))
     );
   }
-    
-  // seguir com geocoding → clima...
-   
-  private mapOpenWeather(data: any): WeatherResult {
-    return {
-      cidade: data.name,
-      temperaturaC: data.main.temp,
-      condicao: data.weather[0].description,
-      umidade: data.main.humidity,
-      ventoMs: data.wind.speed,
-      atualizadoEm: new Date().toISOString()
-    };
-  }
-
-  private handleError(err: any) {
-    if (err?.status === 404) return throwError(() => new Error('Cidade ou CEP não encontrado.'));
-    if (err?.status === 400) return throwError(() => new Error('CEP inválido.'));
-    return throwError(() => new Error('Falha de rede. Tente novamente.'));
-  }
-
+  
   private getDescricaoCondicao(codigo: number): string {
     const mapa: { [key: number]: string } = {
       0: 'Céu limpo',

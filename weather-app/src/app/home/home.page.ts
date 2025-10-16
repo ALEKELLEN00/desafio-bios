@@ -17,8 +17,8 @@ import {
 } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { WeatherService } from '../services/weather.service'; // ajuste o caminho se necessário
-import { WeatherResult } from '../models/weather.model';
+import { WeatherService } from '../services/weather.service'; 
+
 
 @Component({
   selector: 'app-home',
@@ -72,16 +72,4 @@ this.weatherService.getWeather(this.termo).subscribe({
       this.loading = false;
       }
     });
-
-/*setTimeout(() => {
-this.weather = {
-  cidade: 'Exemplo',
-  temperaturaC: 25.5,
-  condicao: 'Ensolarado',
-  umidade: 50,
-  ventoMs: 3,
-  atualizadoEm: new Date().toISOString()
-};
-this.loading = false;
-}, 1500);*/
 }}
